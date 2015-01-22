@@ -1,0 +1,20 @@
+{
+  "name": "ngcli-task-runner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "amanvirk <virk.officials@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "broccoli": "^0.13.3",
+    "broccoli-kitchen-sink-helpers": "^0.2.6",
+    "broccoli-merge-trees": "^0.2.1",
+    "broccoli-webpack-fast": "^1.0.0",
+    "lineup": "0.0.7",
+    "ncp": "^1.0.1",
+    "rimraf": "^2.2.8"
+  }
+}

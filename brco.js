@@ -28,7 +28,9 @@
     function BroccoliBuild() {}
 
     BroccoliBuild.prototype.builder = function(tree) {
-      return new broccoli.Builder(mergeTrees(tree,{overwrite:true}));
+      return new broccoli.Builder(mergeTrees(tree, {
+        overwrite: true
+      }));
     };
 
     BroccoliBuild.prototype.build = function(dest, tree) {

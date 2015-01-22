@@ -13,7 +13,7 @@ _ = require "lodash"
 class BroccoliBuild
 
   builder: (tree) ->
-    new broccoli.Builder mergeTrees tree
+    new broccoli.Builder mergeTrees tree,{overwrite:true}
 
   build: (dest,tree) ->
     lineup.action.info "build","Starting build process"

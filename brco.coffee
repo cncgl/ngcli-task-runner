@@ -6,7 +6,7 @@ Lineup = require "lineup"
 lineup = new Lineup()
 mergeTrees = require "broccoli-merge-trees"
 helpers = require "broccoli-kitchen-sink-helpers"
-ngCli = require "../../../lib/utils/helpers.js"
+ngCli = require "./helpers.js"
 cli = new ngCli()
 _ = require "lodash"
 

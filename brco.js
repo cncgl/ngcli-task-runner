@@ -18,7 +18,7 @@
 
   helpers = require("broccoli-kitchen-sink-helpers");
 
-  ngCli = require("../../../lib/utils/helpers.js");
+  ngCli = require("./helpers.js");
 
   cli = new ngCli();
 

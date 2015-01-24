@@ -1,6 +1,6 @@
 {
   "name": "ngcli-task-runner",
-  "description":"ngcli task and build runner using broccoli",
+  "description": "ngcli task and build runner using broccoli",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "broccoli-kitchen-sink-helpers": "^0.2.6",
     "broccoli-merge-trees": "^0.2.1",
     "broccoli-webpack-fast": "^1.0.0",
+    "findup": "^0.1.5",
     "lineup": "0.0.7",
     "ncp": "^1.0.1",
     "rimraf": "^2.2.8"

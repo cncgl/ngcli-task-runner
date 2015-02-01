@@ -15,6 +15,7 @@
     "broccoli-webpack-fast": "^1.0.0",
     "findup": "^0.1.5",
     "lineup": "0.0.7",
+    "lodash": "^3.0.1",
     "ncp": "^1.0.1",
     "rimraf": "^2.2.8"
   },

@@ -27,11 +27,26 @@
   BroccoliBuild = (function() {
     function BroccoliBuild() {}
 
+
+    /**
+      @method builder
+      @param tree
+      @description Takes input broccoli tree
+     */
+
     BroccoliBuild.prototype.builder = function(tree) {
       return new broccoli.Builder(mergeTrees(tree, {
         overwrite: true
       }));
     };
+
+
+    /**
+      @method build
+      @param dest
+      @param tree
+      @description Run build tasks for broccoli and outputs same to a destination.
+     */
 
     BroccoliBuild.prototype.build = function(dest, tree) {
       var builder;
@@ -45,6 +60,13 @@
         lineup.log.error(err);
       });
     };
+
+
+    /**
+      @method readTree
+      @param callback
+      @description Reads ngCli addons and pull build tasks from them.
+     */
 
     BroccoliBuild.prototype.readTree = function(cb) {
       cli._getAppAddons(function(err, addons) {
@@ -61,6 +83,14 @@
       });
     };
 
+
+    /**
+      @method serve
+      @param tree
+      @param options
+      @description Serve ngCli app using broccoli serve , requires config options
+     */
+
     BroccoliBuild.prototype.serve = function(tree, options) {
       var builder;
       builder = this.builder(tree);
@@ -70,6 +100,14 @@
         liveReloadPort: options.lrPort
       });
     };
+
+
+    /**
+      @method watch
+      @param dest
+      @param tree
+      @description Watch for file changes and rebuild tasks, do not run a server.
+     */
 
     BroccoliBuild.prototype.watch = function(dest, tree) {
       var builder, watcher;
@@ -86,28 +124,47 @@
       });
     };
 
+
+    /**
+      @method run
+      @param type
+      @description Entrance method to this class,
+        takes type [build,serve]
+        reads config from ngConfig
+        and invokes one of the above method
+     */
+
     BroccoliBuild.prototype.run = function(type) {
-      var self;
+      var dist, self;
       self = this;
+
+      /**
+        Grabs dist as the destination folder
+       */
+      dist = path.join(__dirname, '../../dist');
+
+      /**
+        Reads ngConfig using ngCli helper
+       */
       cli._getNgConfig(function(err, config) {
         if (err) {
           return lineup.log.error(err);
         } else {
+
+          /**
+            Reads addons and pull all builds tasks from them using ngCli helper
+           */
           return self.readTree(function(err, tree) {
-            var dist;
             if (err) {
               return lineup.log.error(err);
             } else {
               if (type === 'serve') {
                 if (config.run_server) {
-                  dist = path.join(__dirname, '../../dist');
                   return self.serve(tree, config);
                 } else {
-                  dist = path.join(__dirname, '../../dist');
                   return self.watch(dist, tree);
                 }
               } else {
-                dist = path.join(__dirname, '../../dist');
                 return self.build(dist, tree);
               }
             }

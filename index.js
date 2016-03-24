@@ -1,6 +1,6 @@
 var Broc = require("./broc.js");
 var broc = new Broc();
-var karma = require("karma").Server;
+var Server = require("karma").Server;
 var path = require("path");
 
 if(process.argv.indexOf('--build') > -1){
